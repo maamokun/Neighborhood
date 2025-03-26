@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+/* 🎨 カスタムテーマ */
+:root {
+  --background: #1b2a2f; /* 深い緑 */
+  --foreground: #b0b0b0; /* 暗めの銀色 */
+  --accent: #3a5a40; /* アクセントカラー */
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* 🌙 ダークモード */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #121a1d; /* さらに深い緑 */
+    --foreground: #c0c0c0; /* 明るめの銀色 */
+    --accent: #486c50; /* ダークモード用のアクセント */
+  }
+}
+
+/* 🎨 全体のデザイン */
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* 🎨 Tailwind を正しく適用 */
+.text-accent {
+  color: var(--accent);
+}
+
+.bg-accent {
+  background-color: var(--accent);
+}
+
+/* 🎨 カスタムスクロールバー */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
