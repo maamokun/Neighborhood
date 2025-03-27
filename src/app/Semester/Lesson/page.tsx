@@ -1,7 +1,7 @@
-export const dynamic = "force-dynamic"
+export const dynamic = "force-dynamic";
 
 import ClientLessonPage from "./ClientLessonPage";
 
 export default function Page() {
-    return <ClientLessonPage />;
+	return <ClientLessonPage />;
 }

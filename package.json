@@ -1,35 +1,46 @@
 {
-  "name": "note-sharing-app",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@mantine/core": "5.10.5",
-    "@mantine/hooks": "5.10.5",
-    "@mantine/rte": "5.10.5",
-    "firebase": "^11.5.0",
-    "next": "15.2.2",
-    "react": "18",
-    "react-dom": "18",
-    "react-quill": "^2.0.0"
-  },
-  "devDependencies": {
-    "@eslint/eslintrc": "^3",
-    "@tailwindcss/postcss": "^4",
-    "@types/firebase": "^3.2.3",
-    "@types/node": "^22.13.14",
-    "@types/react": "^19.0.12",
-    "@types/react-dom": "^19",
-    "autoprefixer": "^10.4.21",
-    "eslint": "^9",
-    "eslint-config-next": "15.2.2",
-    "postcss": "^8.5.3",
-    "tailwindcss": "^4.0.17",
-    "typescript": "^5"
-  }
+	"name": "note-sharing-app",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev --turbopack",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint",
+		"format": "biome format --write ."
+	},
+	"dependencies": {
+		"@auth/firebase-adapter": "^2.8.0",
+		"@mantine/core": "^7.17.3",
+		"@mantine/hooks": "^7.17.3",
+		"@mantine/rte": "5.10.5",
+		"bcryptjs": "^3.0.2",
+		"firebase": "^11.5.0",
+		"firebase-admin": "^13.2.0",
+		"next": "15.2.2",
+		"next-auth": "^5.0.0-beta.25",
+		"postcss-preset-mantine": "^1.17.0",
+		"postcss-simple-vars": "^7.0.1",
+		"react": "18",
+		"react-dom": "18",
+		"react-icons": "^5.5.0",
+		"react-quill": "^2.0.0",
+		"sonner": "^2.0.2"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.9.4",
+		"@eslint/eslintrc": "^3",
+		"@tailwindcss/postcss": "^4",
+		"@types/bcrypt": "^5.0.2",
+		"@types/firebase": "^3.2.3",
+		"@types/node": "^22.13.14",
+		"@types/react": "^19.0.12",
+		"@types/react-dom": "^19",
+		"autoprefixer": "^10.4.21",
+		"eslint": "^9",
+		"eslint-config-next": "15.2.2",
+		"postcss": "^8.5.3",
+		"tailwindcss": "^4.0.17",
+		"typescript": "^5"
+	}
 }
