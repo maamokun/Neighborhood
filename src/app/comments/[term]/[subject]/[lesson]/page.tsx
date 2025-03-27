@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
-import { db } from "@/lib/firebase";
 import {
     collection,
     addDoc,
@@ -11,8 +10,11 @@ import {
     where,
     orderBy,
     deleteDoc,
-    doc
+    doc,
+    type DocumentData,
+    type QueryDocumentSnapshot,
 } from "firebase/firestore";
+import { db } from "@/lib/firebase";
 
 type CommentItem = {
     id: string;
@@ -46,10 +48,12 @@ export default function CommentsPage() {
 
             try {
                 const querySnapshot = await getDocs(q);
-                const loadedComments = querySnapshot.docs.map(doc => ({
-                    id: doc.id,
-                    ...doc.data(),
-                })) as CommentItem[];
+                const loadedComments: CommentItem[] = querySnapshot.docs.map(
+                    (d: QueryDocumentSnapshot<DocumentData>) => ({
+                        id: d.id,
+                        ...(d.data() as Omit<CommentItem, "id">),
+                    })
+                );
 
                 setComments(loadedComments);
             } catch (error) {
@@ -62,19 +66,19 @@ export default function CommentsPage() {
 
     const handleAddComment = async () => {
         if (!newComment.trim()) return;
-    
+
         const currentUsername = sessionStorage.getItem("username") ?? "匿名";
-    
+
         const newEntry = {
             user: currentUsername,
             text: newComment,
             date: new Date().toISOString(),
             collection: storageKey,
         };
-    
+
         try {
             const docRef = await addDoc(collection(db, "comments"), newEntry);
-            setComments(prev => [...prev, { id: docRef.id, ...newEntry }]);
+            setComments((prev) => [...prev, { id: docRef.id, ...newEntry }]);
             setNewComment("");
         } catch (error) {
             console.error("⚠️ Firestore へのコメント追加中にエラー:", error);
@@ -83,9 +87,10 @@ export default function CommentsPage() {
 
     const handleDeleteComment = async (id: string) => {
         if (username !== "hirumiya") return;
+
         try {
             await deleteDoc(doc(db, "comments", id));
-            setComments(prev => prev.filter(comment => comment.id !== id));
+            setComments((prev) => prev.filter((comment) => comment.id !== id));
         } catch (error) {
             console.error("⚠️ Firestore のコメント削除中にエラー:", error);
         }
