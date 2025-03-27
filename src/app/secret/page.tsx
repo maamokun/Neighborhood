@@ -28,6 +28,7 @@ export default function SecretPage() {
         <div style={{ textAlign: "center", marginTop: "50px" }}>
             <h1>パスワード発行ページ</h1>
             <p>ユーザー名を入力すると、対応するパスワードが生成されます。</p>
+            <p>私以外でこのページを見つけた人は……よくやった。でもそっとしておいて。お願い。</p>
 
             <input
                 type="text"
