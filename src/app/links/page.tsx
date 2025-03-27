@@ -19,6 +19,10 @@ const links: LinkItem[] = [
         label: "Tailwind CSS",
         url: "https://tailwindcss.com/",
     },
+    {
+        label: "お問い合わせ、ご相談はこちら",
+        url: "tomo0096jp@gmail.com",
+    },
 ];
 
 export default function LinksPage() {
