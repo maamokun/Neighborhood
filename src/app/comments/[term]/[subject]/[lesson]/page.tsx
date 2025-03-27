@@ -97,8 +97,8 @@ export default function CommentsPage() {
     };
 
     return (
-        <div className="max-w-3xl mx-auto px-4 py-8">
-            <h1 className="text-xl font-semibold mb-6 border-b border-gray-700 pb-2">
+        <div className="max-w-3xl mx-auto px-4 py-8 font-serif">
+            <h1 className="text-xl sm:text-2xl font-semibold mb-6 border-b border-gray-700 pb-2 tracking-wide">
                 {decodedTerm} - {decodedSubject} - {decodedLesson} のコメント
             </h1>
 
@@ -111,7 +111,9 @@ export default function CommentsPage() {
                         <div className="text-sm text-gray-400 mb-1">
                             {comment.user}（{new Date(comment.date).toLocaleString()}）
                         </div>
-                        <p className="text-gray-100">{comment.text}</p>
+                        <p className="text-sm text-gray-100 whitespace-pre-wrap break-words">
+                            {comment.text}
+                        </p>
                         {username === "hirumiya" && (
                             <button
                                 onClick={() => handleDeleteComment(comment.id)}
@@ -130,12 +132,12 @@ export default function CommentsPage() {
                     placeholder="コメントを入力"
                     value={newComment}
                     onChange={(e) => setNewComment(e.target.value)}
-                    rows={3}
-                    className="w-full bg-transparent border border-gray-600 rounded-md px-3 py-2 text-sm text-gray-100 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-700 mb-4"
+                    rows={4}
+                    className="w-full bg-transparent border border-gray-600 rounded-md px-3 py-2 text-sm text-gray-100 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-700 mb-4 resize-none"
                 />
                 <button
                     onClick={handleAddComment}
-                    className="bg-emerald-700 hover:bg-emerald-600 text-white px-4 py-2 rounded-md text-sm transition-all"
+                    className="bg-emerald-700 hover:bg-emerald-600 text-white px-4 py-2 rounded-md text-sm transition-all w-full sm:w-auto"
                 >
                     送信
                 </button>

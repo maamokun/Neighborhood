@@ -14,11 +14,11 @@ export default function ClientLessonPage() {
 
     return (
         <div className="max-w-6xl mx-auto px-4 py-8">
-            <h1 className="text-2xl font-semibold mb-6 border-b border-gray-700 pb-2 tracking-wide">
+            <h1 className="text-2xl font-semibold mb-6 border-b border-gray-700 pb-2 tracking-wide font-serif">
                 {termDisplay} の科目とコマを選択
             </h1>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {subjects.map((subject) => {
                     const lessons = lessonNumbers[subject] || [];
                     const maxLesson = Math.max(...lessons, 0);
@@ -27,9 +27,9 @@ export default function ClientLessonPage() {
                     return (
                         <div
                             key={subject}
-                            className="bg-[#1a1a1a] border border-gray-700 rounded-xl p-5 shadow-sm hover:shadow-md transition-all"
+                            className="bg-[#1a1a1a] border border-gray-700 rounded-xl p-4 sm:p-5 shadow-sm hover:shadow-md transition-all"
                         >
-                            <h2 className="text-lg font-semibold mb-3 border-b border-gray-600 pb-1 tracking-wide">
+                            <h2 className="text-base sm:text-lg font-semibold mb-3 border-b border-gray-600 pb-1 tracking-wide break-words">
                                 {subject}
                             </h2>
 
@@ -42,14 +42,15 @@ export default function ClientLessonPage() {
                                     return (
                                         <li
                                             key={`${subject}-${lessonNumber}`}
-                                            className="flex items-center gap-2 min-w-[8rem]">
+                                            className="flex items-center gap-2 min-w-[7rem]"
+                                        >
                                             {exists ? (
                                                 <>
                                                     <a
                                                         href={pdfUrl}
                                                         target="_blank"
                                                         rel="noopener noreferrer"
-                                                        className="px-3 py-1.5 text-sm bg-emerald-800 hover:bg-emerald-700 text-white rounded-md transition-all"
+                                                        className="px-3 py-1.5 text-xs sm:text-sm bg-emerald-800 hover:bg-emerald-700 text-white rounded-md transition-all"
                                                     >
                                                         {lessonNumber}コマ目
                                                     </a>
@@ -63,7 +64,7 @@ export default function ClientLessonPage() {
                                                 </>
                                             ) : (
                                                 <>
-                                                    <span className="px-3 py-1.5 text-sm bg-gray-700 text-gray-400 rounded-md cursor-not-allowed opacity-60">
+                                                    <span className="px-3 py-1.5 text-xs sm:text-sm bg-gray-700 text-gray-400 rounded-md cursor-not-allowed opacity-60">
                                                         {lessonNumber}コマ目
                                                     </span>
                                                     <span className="w-5 h-5" />
