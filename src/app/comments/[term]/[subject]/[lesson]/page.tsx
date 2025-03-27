@@ -97,7 +97,7 @@ export default function CommentsPage() {
     };
 
     return (
-        <div className="max-w-3xl mx-auto px-4 py-8 font-serif">
+        <div className="max-w-3xl mx-auto px-4 py-8 font-sans">
             <h1 className="text-xl sm:text-2xl font-semibold mb-6 border-b border-gray-700 pb-2 tracking-wide">
                 {decodedTerm} - {decodedSubject} - {decodedLesson} のコメント
             </h1>
