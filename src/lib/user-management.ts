@@ -1,7 +1,7 @@
 "use server";
 import { db } from "@/lib/firebase";
 import { collection, addDoc, query, where, getDocs } from "firebase/firestore";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 
 export type NewUser = {
 	username: string;
